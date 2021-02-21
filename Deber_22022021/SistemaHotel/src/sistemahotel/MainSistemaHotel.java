@@ -26,8 +26,10 @@ public class MainSistemaHotel {
         reserva1.setFechaSalida(fmt.parse("05-03-2021"));
         reserva1.setHoraIngreso(fmt2.parse("10:15"));
         reserva1.setHoraSalida(fmt2.parse("12:00"));   
-        reserva1.setHabitacion(habitacion);
-        reserva1.setCliente(cliente);
+        Habitacion habitaciondeBDD=obtenerHabitacionBDD();
+        reserva1.setHabitacion(habitaciondeBDD);
+        Cliente clientedeBDD=obtenerClienteBDD();
+        reserva1.setCliente(clientedeBDD);
     }
     public static Habitacion obtenerHabitacionBDD(){
         Habitacion habitacion =new Habitacion();
@@ -37,12 +39,13 @@ public class MainSistemaHotel {
         habitacion.setPrecio(Double.parseDouble("60"));
         return habitacion;
     } 
-      public static Cliente obtenerClienteBDD(){
+    public static Cliente obtenerClienteBDD(){
         Cliente cliente =new Cliente();
-        cliente.setIdCliente(Integer.parseInt("1712467899"));
-        cliente.setNombres("David Herrera");
-        cliente.setDireccion("Av. Napo y Villaflora");
-        cliente.setEmail("david1985@yahoo.com");
+        Persona persona =new Persona();
+        persona.setIdPersona(Integer.parseInt("1712467899"));
+        persona.setNombres("David Herrera");
+        persona.setDireccion("Av. Napo y Villaflora");
+        persona.setEmail("david1985@yahoo.com");
         cliente.setProcedencia("Quito");
         cliente.setTelefono("0935763213");
         return cliente;
